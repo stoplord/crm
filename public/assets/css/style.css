@@ -1,0 +1,173 @@
+/* 
+ * CRM SYSTEM - CUSTOM STYLESHEET
+ * Extends Bootstrap 5 with layout specifics, mobile sidebar toggling, 
+ * and custom UI enhancements for the dashboard.
+ */
+
+/* ==========================================
+   1. BASE LAYOUT & WRAPPER
+   ========================================== */
+body {
+    background-color: #f4f6f9; /* Soft dashboard background */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    padding-top: 60px; /* Offset for fixed top navbar */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   2. TOP NAVBAR
+   ========================================== */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1050;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.time-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   3. SIDEBAR NAVIGATION
+   ========================================== */
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background-color: #212529; /* Matches Bootstrap bg-dark */
+    transition: margin 0.3s ease-in-out;
+    z-index: 1040;
+    padding-top: 60px; /* Offset for fixed top navbar */
+}
+
+.sidebar-heading {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+#sidebar .list-group-item {
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+#sidebar .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+#sidebar .list-group-item.active {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Submenu Styling */
+#sidebar .collapse .nav-link {
+    color: #adb5bd;
+    padding: 0.4rem 1rem 0.4rem 2.5rem;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+#sidebar .collapse .nav-link:hover {
+    color: #fff;
+}
+
+#sidebar .collapse .nav-link.active {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ==========================================
+   4. DATA TABLES & CARDS
+   ========================================== */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.table > :not(caption) > * > * {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.03);
+}
+
+/* ==========================================
+   5. UI ENHANCEMENTS
+   ========================================== */
+/* Lead Temperature Badges */
+.badge {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 0.4em 0.65em;
+}
+
+/* Dashboard Timer */
+#dashboard-today-time {
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+/* ==========================================
+   6. MOBILE RESPONSIVENESS (Max 768px)
+   ========================================== */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px; /* Hide off-canvas by default */
+        position: fixed;
+        height: 100vh;
+        overflow-y: auto;
+    }
+    
+    #sidebar.show-sidebar {
+        margin-left: 0;
+        box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    }
+
+    #page-content-wrapper {
+        width: 100vw;
+    }
+    
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    
+    /* Adjust time display on small screens */
+    .time-display {
+        font-size: 0.85rem;
+    }
+    
+    .nav-item.me-4 {
+        margin-right: 0.5rem !important;
+    }
+}
